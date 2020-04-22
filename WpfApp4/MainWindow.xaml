@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="400">
+    <Grid>
+        <ProgressBar Minimum="75" Maximum="100"  Orientation="Vertical" Name="leftProgressBar" HorizontalAlignment="Left" Height="110" Width="5" Value="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <ProgressBar  Minimum="0" Maximum="25" Orientation="Horizontal" Name="topProgressBar" HorizontalAlignment="Left" Height="5" Width="110" Value="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <Rectangle  Margin="5,5,0,0" Height="100" Width="100" Fill="DeepSkyBlue"  VerticalAlignment="Top" HorizontalAlignment="Left"></Rectangle>
+        <ProgressBar Minimum="25" Maximum="50"  Margin="105,5,0,0" Orientation="Vertical" Name="rightProgressBar"  HorizontalAlignment="Left" Height="105" Width="5" Value="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" VerticalAlignment="Top">
+            <ProgressBar.LayoutTransform>
+                <RotateTransform Angle="180" />
+            </ProgressBar.LayoutTransform>
+        </ProgressBar>
+        <ProgressBar Minimum="50" Maximum="75"   Margin="5,105,0,0" Orientation="Horizontal" Name="bottomProgressBar"  HorizontalAlignment="Left" Height="5" Width="100" Value="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" VerticalAlignment="Top">
+        <ProgressBar.LayoutTransform>
+            <RotateTransform Angle="180" />
+        </ProgressBar.LayoutTransform>
+        </ProgressBar>
+        <TextBox Name="valueText"  Height="23" TextWrapping="Wrap" HorizontalAlignment="Right" Text= "{Binding ElementName=slider, Path=Value, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Slider Name="slider" Minimum="0" VerticalAlignment="Bottom" Value="{Binding ElementName=valueText, Path=Text, Mode=TwoWay}" Maximum="100" Margin="10,10,10,10"></Slider>
+    </Grid>
+</Window>
